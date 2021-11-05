@@ -12,14 +12,13 @@ function solution(participant, completion) {
 // 위장
 function solution(clothes) {
     var answer = 1;
-    var obj = {};
+    var comb = {};
     for (var i = 0; i < clothes.length; i++) {
-        obj[clothes[i][1]] = (obj[clothes[i][1]] || 1) + 1;
+        comb[clothes[i][1]] = (comb[clothes[i][1]] || 1) + 1;
     }
-
-    for (var key in obj) {
-        answer *= obj[key];
+    for (var key in comb) {
+        answer *= comb[key];
     }
-
     return answer - 1;
 }
+
