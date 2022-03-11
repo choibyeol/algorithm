@@ -42,3 +42,25 @@ def solution(numbers):
             i += 1
         return answer
     """
+
+# H-index
+def hLen(citations, h):
+    max_ans = 0
+    min_ans = 0
+    for num in citations:
+        if num >= h:
+            max_ans += 1
+        else:
+            min_ans += 1
+    return min_ans, max_ans
+
+def solution(citations):
+    answer = 0
+    citations.sort(reverse=True)
+    h = citations[0]
+    while(True):
+        h_min, h_max = hLen(citations, h)
+        if h_max >= h and h_min <= h:
+            answer = h
+            return answer
+        h -= 1
