@@ -20,3 +20,29 @@ def solution(answers):
         if dic[num] == max_ans:
             answer.append(num)
     return answer
+
+# 소수 찾기 level 2
+import math
+from itertools import permutations
+
+def isPrime(num):
+    if num == 1 or num == 0:
+        return False
+    if num == 2:
+        return True
+    for i in range(2, int(math.sqrt(num)) + 1):
+        if num % i == 0:
+            return False
+    return True
+
+def solution(numbers):
+    answer = set()
+    for i in range(1, len(numbers) + 1):
+        for num in list(permutations(numbers, i)):
+            temp = ''
+            for i in num:
+                temp += i
+            if isPrime(int(temp)) == True:
+                answer.add(int(temp))
+    cnt = len(answer)
+    return cnt
