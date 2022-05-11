@@ -46,3 +46,46 @@ def solution(numbers):
                 answer.add(int(temp))
     cnt = len(answer)
     return cnt
+
+# 카펫 level 2
+'''
+bbbbbbbb
+byyyyyyb
+byyyyyyb
+byyyyyyb
+byyyyyyb
+bbbbbbbb
+
+bbbb
+byyb
+bbbb
+
+사각형 위, 아래: (yellow의 약수 중 하나 + 2) * 2
+yellow 양 옆: 2 * (yellow 총 개수 / 위에서 구한 약수)
+두개를 더한 값이 brown이 되게
+근데 가로가 세로보다 같거나 길어야 함.
+
+가로: 사각형 위
+세로: yellow 옆 + 2
+'''
+
+def division(num):
+    div_list = []
+    for i in range(1, num + 1):
+        if num % i == 0:
+            div_list.append(i)
+    return div_list
+
+def solution(brown, yellow):
+    answer = []
+    div_list = division(yellow)
+    for num in div_list:
+        updown = (num + 2) * 2
+        leftright = int(2 * (yellow / num))
+        row = updown / 2
+        col = leftright / 2 + 2
+        if (updown + leftright) == brown and row >= col:
+            break
+    answer.append(row)
+    answer.append(col)
+    return answer
