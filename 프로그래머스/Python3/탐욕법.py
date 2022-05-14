@@ -79,3 +79,15 @@ def solution(name):
             answer = min(answer, row_move + col_move)
             
     return answer
+
+    # 큰 수 만들기 - level 2
+    def solution(number, k):
+        answer = []
+        for num in number:
+            while k != 0 and answer and answer[-1] < num:
+                k -= 1
+                answer.pop()
+            answer.append(num)
+        
+        answer = ''.join(answer[:len(number)-k])
+        return answer
