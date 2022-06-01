@@ -35,3 +35,21 @@ def solution(priorities, location):
         
     answer = arr1.index(location) + 1
     return answer
+
+# 다리를 지나는 트럭 level 2
+def solution(bridge_length, weight, truck_weights):
+    answer = 0
+    bridge = [0 for _ in range(bridge_length)]
+    
+    while True:
+        answer += 1
+        bridge.pop(0)
+        if len(truck_weights) > 0:
+            if sum(bridge) + truck_weights[0] <= weight:
+                bridge.append(truck_weights.pop(0))
+            else:
+                bridge.append(0)
+        if len(bridge) == 0:
+            break
+        
+    return answer
