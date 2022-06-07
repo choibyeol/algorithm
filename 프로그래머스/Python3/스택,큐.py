@@ -53,3 +53,16 @@ def solution(bridge_length, weight, truck_weights):
             break
         
     return answer
+
+# 주식가격 level 2
+def solution(prices):
+    answer = [0 for _ in range(len(prices))]
+    cnt = len(prices)
+    for i in range(len(prices)):
+        for j in range(i + 1, len(prices)):
+            if prices[i] <= prices[j]:
+                answer[i] += 1
+            else:
+                answer[i] += 1
+                break
+    return answer
