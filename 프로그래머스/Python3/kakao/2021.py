@@ -52,3 +52,20 @@ def solution(new_id):
                 answer += answer[-1:]
     
     return answer
+
+# 숫자 문자열과 영단어 level 1
+alpha = {'zero': '0', 'one': '1', 'two': '2', 'three': '3', 'four': '4', 'five': '5', 'six': '6', 'seven': '7', 'eight': '8', 'nine': '9'}
+
+def solution(s):
+    answer = ''
+    num = ''
+    for i in s:
+        if i.isdigit() == True:
+            answer += i
+        else:
+            num += i
+            if num in alpha:
+                answer += alpha[num]
+                num = ''
+    answer = int(answer)
+    return answer
