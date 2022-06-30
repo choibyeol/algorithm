@@ -36,6 +36,7 @@ def solution(numbers, hand):
 
             L_len = abs(num_dict['i'] - L_dict['i']) + abs(num_dict['j'] - L_dict['j'])
             R_len = abs(num_dict['i'] - R_dict['i']) + abs(num_dict['j'] - R_dict['j'])
+
             if L_len == R_len:
                 if hand == 'right':
                     R_location = num
@@ -51,4 +52,32 @@ def solution(numbers, hand):
                     L_location = num
                     answer += 'L'
                 
+    return answer
+
+# 문자열 압축 level 2
+def solution(s):
+    answer = 0
+    mins = len(s)
+    tmpstr = s
+    for i in range(1, int(len(s) / 2) + 1):
+        num = 1
+        tmpstr = ''
+        tmp = s[0:i]
+        for j in range(i, len(s), i):
+            if tmp == s[j:j+i]:
+                num += 1
+            else:
+                if num == 1:
+                    tmpstr += tmp
+                else:
+                    tmpstr += str(num) + tmp
+                    num = 1
+            tmp = s[j:j+i]
+        if num != 1:
+            tmpstr += str(num) + tmp
+        else:
+            tmpstr += tmp
+        if len(tmpstr) < mins:
+            mins = len(tmpstr)
+    answer = mins
     return answer
