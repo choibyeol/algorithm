@@ -13,3 +13,49 @@ def solution(board, moves):
                 doll = doll[0:-2]
                 answer += 2
     return answer
+
+# 실패율 level 1
+def solution(N, stages):
+    answer = []
+    f_rate = {}
+    S = len(stages)
+    for stage in range(1, N+1):
+        if S != 0:
+            count = stages.count(stage)
+            f_rate[stage] = count / S
+            S -= count
+        else:
+            f_rate[stage] = 0
+    answer = sorted(f_rate, key = lambda x: f_rate[x], reverse=True)
+    return answer
+
+''' 처음 틀린 풀이
+def solution(N, stages):
+    answer = []
+    stage_dict = {}
+    f_rate = {}
+    for stage in stages:
+        if stage in stage_dict:
+            stage_dict[stage] += 1
+        else:
+            if stage == N + 1:
+                continue
+            stage_dict[stage] = 1
+            f_rate[stage] = 0
+        
+    P = len(stages)
+    for i in range(1, N+1):
+        if i in stage_dict:
+            if i-1 in stage_dict:
+                P -= stage_dict[i-1]
+                f_rate[i] = stage_dict[i] / P
+            else:
+                f_rate[i] = stage_dict[i] / P
+                
+    for item in sorted(f_rate.items(), key = lambda x : (-x[1], x[0])):
+        answer.append(item[0])
+    for i in range(1, N+1):
+        if i not in answer:
+            answer.append(i)
+    return answer
+'''
