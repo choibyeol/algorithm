@@ -59,3 +59,29 @@ def solution(N, stages):
             answer.append(i)
     return answer
 '''
+
+# 오픈채팅방 level 2
+def solution(record):
+    answer = []
+    user_dict = {}
+    chats = []
+    for i in range(len(record)):
+        user_info = record[i].split()
+        chat = user_info[0]
+        user_id = user_info[1]
+        if len(user_info) > 2:
+            user_name = user_info[2]
+            user_dict[user_id] = user_name
+        if chat != 'Change':
+            chats.append([chat, user_id])
+            
+    for chat in chats:
+        id = chat[1]
+        name = user_dict[id]
+        if chat[0] == 'Enter':
+            string = name + "님이 들어왔습니다."
+            answer.append(string)
+        elif chat[0] == 'Leave':
+            string = name + "님이 나갔습니다."
+            answer.append(string)
+    return answer
