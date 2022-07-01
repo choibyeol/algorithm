@@ -81,3 +81,65 @@ def solution(s):
             mins = len(tmpstr)
     answer = mins
     return answer
+
+# 괄호 변환 level 2
+def solution(p):
+    answer = ''
+    if p == '':
+        return p
+    if iscorrect(p):
+        return p
+    answer = rec(p)
+    return answer
+
+def divide(p):
+    left, right = 0, 0
+    for i in range(len(p)):
+        if p[i] == '(':
+            left += 1
+        else:
+            right += 1
+        if left == right:
+            u = p[:i+1]
+            if i+1 < len(p):
+                v = p[i+1:]
+            else:
+                v = ''
+            break
+    return u, v
+
+def iscorrect(p):
+    stack = []
+    for c in p:
+        if c == '(':
+            stack.append(c)
+        else:
+            if len(stack) == 0:
+                return False
+            else:
+                stack.pop()
+    if len(stack) == 0:
+        return True
+    else:
+        return False
+
+def rec(p):
+    result = ''
+    tmp = ''
+    if p == '':
+        return p
+    u, v = divide(p)
+    if iscorrect(u):
+        result = u + rec(v)
+    else:
+        tmp = '('
+        tmp += rec(v)
+        tmp += ')'
+        u = u[1:-1]
+        for c in u:
+            if c == '(':
+                tmp += ')'
+            else:
+                tmp += '('
+    result += tmp
+    return result
