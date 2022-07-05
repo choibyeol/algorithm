@@ -69,3 +69,39 @@ def solution(s):
                 num = ''
     answer = int(answer)
     return answer
+
+from itertools import combinations
+
+# 메뉴 리뉴얼 level 2
+def solution(orders, course):
+    answer = []
+    menu_dict = {}
+    for order in orders:
+        for i in course:
+            if len(order) < i:
+                continue
+            comb = list(combinations(order, i))
+            if i not in menu_dict:
+                menu_dict[i] = {}
+            for c in comb:
+                menu = ''
+                for j in range(len(c)):
+                    menu += c[j]
+                menu = ''.join(sorted(menu))
+                if menu not in menu_dict[i]:
+                    menu_dict[i][menu] = 1
+                else:
+                    menu_dict[i][menu] += 1
+
+    for key in menu_dict.keys():
+        menu_list = sorted(menu_dict[key].items(), key = lambda x : -x[1])
+        value_menu = menu_list[0][1]
+        for menu in menu_list:
+            if menu[1] < 2:
+                break
+            if menu[1] != value_menu:
+                break
+            value_menu = menu[1]
+            answer.append(menu[0])
+    answer.sort()
+    return answer
