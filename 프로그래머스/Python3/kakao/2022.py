@@ -32,3 +32,51 @@ def solution(id_list, report, k):
                 answer[i] += 1
 
     return answer
+
+# [1차] 뉴스 클러스터링 level 2
+def solution(str1, str2):
+    answer = 0
+    str1_list = []
+    str2_list = []
+    for i in range(len(str1)-1):
+        string = str1[i] + str1[i+1]
+        string = string.lower()
+        if string.isalpha() == False:
+            continue
+        else:
+            str1_list.append(string)
+                
+    for i in range(len(str2)-1):
+        string = str2[i] + str2[i+1]
+        string = string.lower()
+        if string.isalpha() == False:
+            continue
+        else:
+            str2_list.append(string)
+
+    # 다중집합 확장
+    str1_temp = str1_list.copy()
+    union = str1_list + str2_list
+    intersection = []
+    for i in str2_list:
+        if i in str1_temp:
+            str1_temp.remove(i)
+            intersection.append(i)
+    inter_temp = intersection.copy()
+    for i in inter_temp:
+        if i in union:
+            union.remove(i)
+    if intersection == [] and union == []:
+        answer = 1
+    else:
+        answer = len(intersection) / len(union)
+    answer = int(answer * 65536)
+    # set으로 하면 다중집합 체크 안됨
+    # str1_set = set(str1_list)
+    # str2_set = set(str2_list)
+    # print(str1_set & str2_set, str1_set | str2_set)
+    # if str1_set == set() and str2_set == set():
+    #     answer = 1
+    # else:
+    #     answer = len(str1_set & str2_set) / len(str1_set | str2_set)
+    return answer
