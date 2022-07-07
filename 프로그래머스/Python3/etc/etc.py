@@ -47,3 +47,16 @@ def solution(numbers):
         if i not in numbers:
             answer += i
     return answer
+
+# 두 개 뽑아서 더하기 level 1
+def solution(numbers):
+    answer = []
+    for i in range(len(numbers)):
+        for j in range(len(numbers)):
+            if i == j:
+                continue
+            answer.append(numbers[i] + numbers[j])
+    answer = set(answer)
+    answer = list(answer)
+    answer.sort()
+    return answer
