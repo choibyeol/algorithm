@@ -39,3 +39,11 @@ def solution(numbers):
         if i not in numbers:
             answer += i
     return answer
+
+# 내적 level 1
+def solution(numbers):
+    answer = 0
+    for i in range(1, 10):
+        if i not in numbers:
+            answer += i
+    return answer
