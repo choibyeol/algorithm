@@ -7,3 +7,27 @@ def solution(absolutes, signs):
         else:
             answer -= absolutes[i]
     return answer
+
+# 소수 만들기 level 1
+from itertools import combinations
+import math
+
+def solution(nums):
+    answer = 0
+    comb_nums = list(combinations(nums, 3))
+    for num in comb_nums:
+        if isPrime(sum(num)) == True:
+            answer += 1
+    return answer
+
+def isPrime(num):
+    if num <= 1:
+        return False
+    if num == 2:
+        return True
+    if num % 2 == 0:
+        return False
+    for i in range(3, int(math.sqrt(num)) + 1, 2):
+        if num % i == 0:
+            return False
+    return True
