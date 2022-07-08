@@ -60,3 +60,18 @@ def solution(numbers):
     answer = list(answer)
     answer.sort()
     return answer
+
+# 3진법 뒤집기 level 1
+def solution(n):
+    answer = ''
+    while n != 0:
+        answer += str(n % 3)
+        n = int(n / 3)
+    answer = int(answer)
+    answer = str(answer)
+    tmp = 1
+    result = 0
+    for i in range(len(answer)-1, -1, -1):
+        result += int(answer[i]) * tmp
+        tmp *= 3
+    return result
