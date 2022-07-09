@@ -75,3 +75,23 @@ def solution(n):
         result += int(answer[i]) * tmp
         tmp *= 3
     return result
+
+# 로또의 최고 순위와 최저 순위 level 1
+def solution(lottos, win_nums):
+    answer = []
+    lotto_dict = {2: 5, 3: 4, 4: 3, 5: 2, 6: 1}
+    max_num, min_num = 0, 0
+    for lotto in lottos:
+        if lotto in win_nums:
+            max_num += 1
+            min_num += 1
+        else:
+            if lotto == 0:
+                max_num += 1
+    nums = [max_num, min_num]
+    for num in nums:
+        if num not in lotto_dict:
+            answer.append(6)
+        else:
+            answer.append(lotto_dict[num])
+    return answer
