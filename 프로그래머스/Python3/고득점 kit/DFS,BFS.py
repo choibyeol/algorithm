@@ -31,3 +31,20 @@ def DFS(numbers, target, depth):
         numbers[depth] *= -1
         answer += DFS(numbers, target, depth + 1)
         return answer
+
+# 네트워크 level 3
+# DFS 풀이
+def solution(n, computers):
+    def dfs(i):
+        visited[i] = 1
+        for j in range(n):
+            if computers[i][j] and not visited[j]:
+                dfs(j)
+                
+    answer = 0
+    visited = [0 for _ in range(n)]
+    for i in range(n):
+        if not visited[i]:
+            dfs(i)
+            answer += 1
+    return answer
