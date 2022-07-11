@@ -96,7 +96,7 @@ def solution(lottos, win_nums):
             answer.append(lotto_dict[num])
     return answer
 
-# 약수의 개수와 덧셈
+# 약수의 개수와 덧셈 level 1
 def solution(left, right):
     answer = 0
     for i in range(left, right+1):
@@ -112,3 +112,19 @@ def divisor(num):
         if num % i == 0:
             count += 1
     return count
+
+# 2016년 level 1
+# 1, 3, 5, 7, 8, 10, 12 -> 31
+# 2 -> 29
+# 4, 6, 9, 11 -> 30
+
+days_dict = {1: 31, 2: 29, 3: 31, 4: 30, 5: 31, 6: 30, 7: 31, 8: 31, 9: 30, 10: 31, 11: 30, 12: 31}
+days = ["THU", "FRI", "SAT", "SUN", "MON", "TUE", "WED"]
+def solution(a, b):
+    answer = ''
+    temp = 0
+    for i in range(1, a):
+        temp += days_dict[i]
+    temp += b
+    answer = days[temp % 7]
+    return answer
