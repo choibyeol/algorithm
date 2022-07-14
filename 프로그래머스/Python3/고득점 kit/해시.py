@@ -1,3 +1,10 @@
+# 폰켓몬 level 1
+def solution(nums):
+    if len(set(nums)) >= len(nums) / 2:
+        return int(len(nums) / 2)
+    else:
+        return len(set(nums))
+
 # 완주하지 못한 선수 level 1
 def solution(participant, completion):
     answer = ''
