@@ -66,3 +66,16 @@ def solution(prices):
                 answer[i] += 1
                 break
     return answer
+
+# 같은 숫자는 싫어 level 1
+def solution(arr):
+    answer = []
+    for i in arr:
+        if i not in answer:
+            answer.append(i)
+        else:
+            if answer[-1] == i:
+                continue
+            else:
+                answer.append(i)
+    return answer
