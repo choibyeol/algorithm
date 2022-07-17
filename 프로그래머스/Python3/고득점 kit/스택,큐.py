@@ -79,3 +79,21 @@ def solution(arr):
             else:
                 answer.append(i)
     return answer
+
+# 올바른 괄호 level 2
+def solution(s):
+    answer = True
+    if s[0] != '(' or s[-1] != ')':
+        return False
+    if s.count('(') != s.count(')'):
+        return False
+    stack = []
+    for i in s:
+        if i == '(':
+            stack.append(i)
+        else:
+            if stack == []:
+                return False
+            else:
+                stack.pop()
+    return True
