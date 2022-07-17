@@ -89,3 +89,17 @@ def solution(brown, yellow):
     answer.append(row)
     answer.append(col)
     return answer
+
+# 최소직사각형 level 1
+def solution(sizes):
+    maxs, mins = [], []
+    for size in sizes:
+        w, h = size[0], size[1]
+        if w >= h:
+            maxs.append(w)
+            mins.append(h)
+        else:
+            maxs.append(h)
+            mins.append(w)
+    answer = max(maxs) * max(mins)
+    return answer
