@@ -117,7 +117,6 @@ def divisor(num):
 # 1, 3, 5, 7, 8, 10, 12 -> 31
 # 2 -> 29
 # 4, 6, 9, 11 -> 30
-
 days_dict = {1: 31, 2: 29, 3: 31, 4: 30, 5: 31, 6: 30, 7: 31, 8: 31, 9: 30, 10: 31, 11: 30, 12: 31}
 days = ["THU", "FRI", "SAT", "SUN", "MON", "TUE", "WED"]
 def solution(a, b):
@@ -127,4 +126,15 @@ def solution(a, b):
         temp += days_dict[i]
     temp += b
     answer = days[temp % 7]
+    return answer
+
+# 예산 level 1
+def solution(d, budget):
+    answer = 0
+    d.sort()
+    for i in d:
+        budget -= i
+        if budget < 0:
+            break
+        answer += 1
     return answer
