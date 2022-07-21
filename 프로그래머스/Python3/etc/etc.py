@@ -147,3 +147,14 @@ def solution(n):
             answer = i
             break
     return answer
+
+# 부족한 금액 계산하기 level 1
+def solution(price, money, count):
+    answer = 0
+    for i in range(count):
+        answer += price * (i + 1)
+    answer = money - answer
+    if answer < 0:
+        return abs(answer)
+    else:
+        return 0
