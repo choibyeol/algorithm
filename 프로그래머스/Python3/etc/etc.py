@@ -180,3 +180,10 @@ def solution(a, b):
     for i in range(a, b+1):
         answer += i
     return answer
+
+# 멀쩡한 사각형 level 2
+from math import gcd
+
+def solution(w,h):
+    answer = w * h - (w + h - gcd(w, h))
+    return answer
