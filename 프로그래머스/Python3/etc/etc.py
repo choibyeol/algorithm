@@ -187,3 +187,13 @@ from math import gcd
 def solution(w,h):
     answer = w * h - (w + h - gcd(w, h))
     return answer
+
+# 124 나라의 숫자 level 2
+def solution(n):
+    answer = ''
+    nums = ['1', '2', '4']
+    while n:
+        n -= 1
+        answer = nums[n % 3] + answer
+        n //= 3
+    return answer
