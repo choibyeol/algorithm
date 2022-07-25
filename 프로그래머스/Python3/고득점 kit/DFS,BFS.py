@@ -48,3 +48,36 @@ def solution(n, computers):
             dfs(i)
             answer += 1
     return answer
+
+# 단어 변환 level 2
+def solution(begin, target, words):
+    if target not in words:
+        return 0
+    answer = 0
+    answers = []
+    w = begin
+    
+    def dfs(w, target, answer, answers):
+        if answers != []:
+            if answer >= min(answers):
+                return
+        if w == target:
+            answers.append(answer)
+            return
+        for word in words:
+            cnt = 0
+            for i in range(len(word)):
+                if w[i] == word[i]:
+                    cnt += 1
+            if cnt == len(word) - 1:
+                words.remove(word)
+                front_w = w
+                w = word
+                answer += 1
+                dfs(w, target, answer, answers)
+                answer -= 1
+                w = front_w
+                words.append(word)
+
+    dfs(w, target, answer, answers)
+    return min(answers)
