@@ -197,3 +197,16 @@ def solution(n):
         answer = nums[n % 3] + answer
         n //= 3
     return answer
+
+# 문자열 내 p와 y의 개수 level 1
+def solution(s):
+    answer = True
+    p_cnt, y_cnt = 0, 0
+    for a in s:
+        if a == 'p' or a == 'P':
+            p_cnt += 1
+        elif a == 'y' or a == 'Y':
+            y_cnt += 1
+    if p_cnt != y_cnt:
+        answer = False
+    return answer
