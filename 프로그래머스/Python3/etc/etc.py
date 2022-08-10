@@ -211,8 +211,12 @@ def solution(s):
         answer = False
     return answer
 
-# 문자열 내 마음대로 정렬하기
+# 문자열 내 마음대로 정렬하기 level 1
 def solution(strings, n):
     answer = []
     answer = sorted(strings, key = lambda x:(x[n], x))
     return answer
+
+# 문자열을 정수로 바꾸기 level 1
+def solution(s):
+    return int(s)
