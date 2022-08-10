@@ -220,3 +220,11 @@ def solution(strings, n):
 # 문자열을 정수로 바꾸기 level 1
 def solution(s):
     return int(s)
+
+# 서울에서 김서방 찾기 level 1
+def solution(seoul):
+    answer = ''
+    for i in range(len(seoul)):
+        if seoul[i] == "Kim":
+            answer = "김서방은 " + str(i) + "에 있다"
+    return answer
