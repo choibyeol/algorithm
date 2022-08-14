@@ -236,3 +236,17 @@ def solution(n):
         if n % i == 0:
             answer += i
     return answer
+
+# 이상한 문자 만들기 level 1
+def solution(s):
+    answer = ''
+    cnt = 0
+    for i in range(len(s)):
+        if cnt % 2 == 0:
+            answer += s[i].upper()
+        else:
+            answer += s[i].lower()
+        cnt += 1
+        if s[i] == ' ':
+            cnt = 0
+    return answer
