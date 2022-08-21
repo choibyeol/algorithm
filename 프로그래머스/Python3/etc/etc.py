@@ -250,3 +250,11 @@ def solution(s):
         if s[i] == ' ':
             cnt = 0
     return answer
+
+# 자릿수 더하기 level 1
+def solution(n):
+    answer = 0
+    n = str(n)
+    for i in n:
+        answer += int(i)
+    return answer
