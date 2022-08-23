@@ -266,3 +266,11 @@ def solution(n):
         if i in num:
             num -= set(range(2*i, n+1, i))
     return len(num)
+
+# 정수 내림차순으로 배치하기 level 1
+def solution(n):
+    answer = 0
+    n = list(str(n))
+    n.sort(reverse = True)
+    answer = int(''.join(n))
+    return answer
