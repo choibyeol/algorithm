@@ -274,3 +274,13 @@ def solution(n):
     n.sort(reverse = True)
     answer = int(''.join(n))
     return answer
+
+# 제일 작은 수 제거하기 level 1
+def solution(arr):
+    answer = []
+    arr.remove(min(arr))
+    if arr == []:
+        answer.append(-1)
+    else:
+        answer = arr
+    return answer
