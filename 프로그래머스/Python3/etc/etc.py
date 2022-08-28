@@ -284,3 +284,10 @@ def solution(arr):
     else:
         answer = arr
     return answer
+
+# 짝수와 홀수 level 1
+def solution(num):
+    if num % 2 == 0:
+        return "Even"
+    else:
+        return "Odd"
