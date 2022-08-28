@@ -314,3 +314,14 @@ def solution(num):
             return -1
         cnt += 1
     return cnt
+
+# 하샤드 수 level 1
+def solution(x):
+    tmp = str(x)
+    h = 0
+    for i in range(len(tmp)):
+        h += int(tmp[i])
+    if x % h == 0:
+        return True
+    else:
+        return False
