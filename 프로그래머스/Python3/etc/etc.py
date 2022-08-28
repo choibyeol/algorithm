@@ -291,3 +291,11 @@ def solution(num):
         return "Even"
     else:
         return "Odd"
+
+# 자연수 뒤집어 배열로 만들기 level 1
+def solution(n):
+    answer = []
+    n = str(n)
+    for i in range(1, len(n) + 1):
+        answer.append(int(n[-i]))
+    return answer
