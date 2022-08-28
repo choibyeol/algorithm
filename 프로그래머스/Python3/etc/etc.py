@@ -299,3 +299,18 @@ def solution(n):
     for i in range(1, len(n) + 1):
         answer.append(int(n[-i]))
     return answer
+
+# 콜라츠 추측 level 1
+def solution(num):
+    cnt = 0
+    if num == 1:
+        return 0
+    while num != 1:
+        if num % 2 == 0:
+            num /= 2
+        else:
+            num = num * 3 + 1
+        if cnt >= 500:
+            return -1
+        cnt += 1
+    return cnt
