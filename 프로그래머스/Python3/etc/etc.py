@@ -326,7 +326,17 @@ def solution(x):
     else:
         return False
 
-# 핸드폰 번호 가리기
+# 핸드폰 번호 가리기 level 1
 def solution(phone_number):
     answer = '*' * (len(phone_number) - 4) + phone_number[-4:]
+    return answer
+
+# 행렬의 덧셈 level 1
+def solution(arr1, arr2):
+    answer = []
+    for i in range(len(arr1)):
+        tmp = []
+        for j in range(len(arr1[0])):
+            tmp.append(arr1[i][j] + arr2[i][j])
+        answer.append(tmp)
     return answer
