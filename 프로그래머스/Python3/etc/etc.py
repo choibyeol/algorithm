@@ -340,3 +340,12 @@ def solution(arr1, arr2):
             tmp.append(arr1[i][j] + arr2[i][j])
         answer.append(tmp)
     return answer
+
+# 정수 제곱근 판별 level 1
+import math
+
+def solution(n):
+    if int(math.sqrt(n)) == math.sqrt(n):
+        return math.pow(math.sqrt(n) + 1, 2)
+    else:
+        return -1
