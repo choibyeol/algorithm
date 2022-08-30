@@ -80,3 +80,23 @@ def solution(str1, str2):
     # else:
     #     answer = len(str1_set & str2_set) / len(str1_set | str2_set)
     return answer
+
+# 성격 유형 검사하기 level 1
+def solution(survey, choices):
+    answer = ''
+    survey_dict = {'R': 0, 'T': 0, 'C': 0, 'F': 0, 'J': 0, 'M': 0, 'A': 0, 'N': 0}
+    for i in range(len(survey)):
+        if choices[i] == 4:
+            continue
+        if choices[i] <= 3:
+            survey_dict[survey[i][0]] += 4 - choices[i]
+        else:
+            survey_dict[survey[i][1]] += choices[i] - 4
+            
+    sl = ['RT', 'CF', 'JM', 'AN']
+    for i in range(4):
+        if survey_dict[sl[i][0]] >= survey_dict[sl[i][1]]:
+            answer += sl[i][0]
+        else:
+            answer += sl[i][1]
+    return answer
