@@ -349,3 +349,12 @@ def solution(n):
         return math.pow(math.sqrt(n) + 1, 2)
     else:
         return -1
+
+# x만큼 간격이 있는 n개의 숫자 level 1
+def solution(x, n):
+    answer = []
+    num = x
+    for i in range(n):
+        answer.append(x)
+        x += num
+    return answer
