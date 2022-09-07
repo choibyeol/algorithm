@@ -365,3 +365,15 @@ for i in range(b):
     for j in range(a):
         print('*', end="")
     print()
+
+# 최대공약수와 최소공배수 level 1
+def solution(n, m):
+    answer = []
+    gcd = 0
+    for i in range(1, n+1):
+        if n % i == 0 and m % i == 0:
+            gcd = i
+    lcm = n * m / gcd
+    answer.append(gcd)
+    answer.append(lcm)
+    return answer
