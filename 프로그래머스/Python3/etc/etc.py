@@ -377,3 +377,10 @@ def solution(n, m):
     answer.append(gcd)
     answer.append(lcm)
     return answer
+
+# 최댓값과 최솟값 level 2
+def solution(s):
+    answer = ''
+    nums = list(map(int, s.split()))
+    answer = str(min(nums)) + ' ' + str(max(nums))
+    return answer
