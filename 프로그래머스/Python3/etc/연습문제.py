@@ -384,3 +384,24 @@ def solution(s):
     nums = list(map(int, s.split()))
     answer = str(min(nums)) + ' ' + str(max(nums))
     return answer
+
+# JadenCase 문자열 만들기
+def solution(s):
+    answer = ''
+    tmp = ''
+    cnt = 0
+    for a in s:
+        if cnt == 0:
+            if a.isalpha() == True:
+                tmp = a.upper()
+            else:
+                tmp = a
+        else:
+            tmp = a.lower()
+        if a == ' ':
+            cnt = 0
+            answer += ' '
+            continue
+        answer += tmp
+        cnt += 1
+    return answer
