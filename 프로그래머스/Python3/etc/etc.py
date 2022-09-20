@@ -405,3 +405,20 @@ def solution(s):
         answer += tmp
         cnt += 1
     return answer
+
+# 최고의 집합 level 3
+def solution(n, s):
+    answer = []
+
+    base = s // n
+    rem = s % n
+
+    if base == 0:
+        return [-1]
+    
+    for _ in range(n - rem):
+        answer.append(base)
+    for _ in range(rem):
+        answer.append(base + 1)
+
+    return answer
