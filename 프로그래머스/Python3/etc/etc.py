@@ -422,3 +422,15 @@ def solution(n, s):
         answer.append(base + 1)
 
     return answer
+
+# 다음 큰 숫자 level 2
+def solution(n):
+    answer = 0
+    cnt_n = bin(n)[2:].count('1')
+    while True:
+        n += 1
+        cnt = bin(n)[2:].count('1')
+        if cnt == cnt_n:
+            answer = n
+            break
+    return answer
