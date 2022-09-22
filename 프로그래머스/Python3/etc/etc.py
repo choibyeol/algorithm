@@ -444,3 +444,16 @@ def solution(s):
         bins = len(s) - s.count('0')
         s = bin(bins)[2:]
     return [cnt, cnt_zero]
+
+# 최솟값 만들기 level 2
+def solution(A,B):
+    answer = 0
+    cnt = len(A)
+    A.sort()
+    B.sort(reverse=True)
+    while cnt != 0:
+        answer += A[0] * B[0]
+        A.pop(0)
+        B.pop(0)
+        cnt -= 1
+    return answer
