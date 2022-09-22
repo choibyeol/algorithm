@@ -457,3 +457,20 @@ def solution(A,B):
         B.pop(0)
         cnt -= 1
     return answer
+
+# 숫자의 표현 level 2
+def solution(n):
+    answer = 0
+    i = 1
+    while i != n:
+        tmp = i
+        s = 0
+        while s < n:
+            s += tmp
+            if s == n:
+                answer += 1
+                break
+            tmp += 1
+        i += 1
+    answer += 1
+    return answer
