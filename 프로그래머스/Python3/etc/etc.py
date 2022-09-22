@@ -434,3 +434,13 @@ def solution(n):
             answer = n
             break
     return answer
+
+# 이진 변환 반복하기 level 2
+def solution(s):
+    cnt, cnt_zero = 0, 0
+    while s != '1':
+        cnt += 1
+        cnt_zero += s.count('0')
+        bins = len(s) - s.count('0')
+        s = bin(bins)[2:]
+    return [cnt, cnt_zero]
