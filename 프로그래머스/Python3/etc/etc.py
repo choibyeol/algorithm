@@ -474,3 +474,16 @@ def solution(n):
         i += 1
     answer += 1
     return answer
+
+# 피보나치 수 level 2
+def solution(n):
+    fibo = []
+    for i in range(n+1):
+        if i == 0:
+            fibo.append(0)
+        elif i == 1:
+            fibo.append(1)
+        else:
+            fibo.append(fibo[i-2] + fibo[i-1])
+    answer = fibo[n] % 1234567
+    return answer
