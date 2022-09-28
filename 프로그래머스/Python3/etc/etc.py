@@ -487,3 +487,19 @@ def solution(n):
             fibo.append(fibo[i-2] + fibo[i-1])
     answer = fibo[n] % 1234567
     return answer
+
+# N개의 최소공배수 level 2
+def gcd(x, y):
+    while y:
+        x, y = y, x % y
+    return x
+
+def solution(arr):
+    if len(arr) == 1:
+        return arr.pop()
+    g = gcd(arr[0], arr[1])
+    lcm = arr[0] * arr[1] // g
+    for i in range(2, len(arr)):
+        g = gcd(lcm, arr[i])
+        lcm = lcm * arr[i] // g 
+    return lcm
