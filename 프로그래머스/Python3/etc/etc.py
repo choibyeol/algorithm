@@ -503,3 +503,33 @@ def solution(arr):
         g = gcd(lcm, arr[i])
         lcm = lcm * arr[i] // g 
     return lcm
+
+# 영어 끝말잇기 level 2
+def solution(n, words):
+    word_dict = {}
+    order = 1
+    cnt = 1
+    word_dict[words[0]] = 1
+    start = words[0][-1]
+    isbreak = False
+    for i in range(1, len(words)):
+        cnt += 1
+        word = words[i]
+        if word[0] != start:
+            isbreak = True
+            break
+        if len(word) <= 1:
+            isbreak = True
+            break
+        if word not in word_dict:
+            word_dict[word] = 1
+        else:
+            isbreak = True
+            break
+        start = word[-1]
+        if cnt == n:
+            cnt = 0
+            order += 1
+    if isbreak == True:
+        return [cnt, order]
+    return [0, 0]
