@@ -533,3 +533,20 @@ def solution(n, words):
     if isbreak == True:
         return [cnt, order]
     return [0, 0]
+
+# 짝지어 제거하기 level 2
+def solution(s):
+    if len(s) % 2 != 0:
+        return 0
+    stack = []
+    for i in range(len(s)):
+        if stack == []:
+            stack.append(s[i])
+        else:
+            if stack[-1] == s[i]:
+                stack.pop()
+            else:
+                stack.append(s[i])
+    if stack == []:
+        return 1
+    return 0
