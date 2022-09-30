@@ -534,7 +534,7 @@ def solution(n, words):
         return [cnt, order]
     return [0, 0]
 
-# 짝지어 제거하기 level 2
+# 짝지어 제거하기(2017 팁스타운) level 2
 def solution(s):
     if len(s) % 2 != 0:
         return 0
@@ -550,3 +550,12 @@ def solution(s):
     if stack == []:
         return 1
     return 0
+
+# 예상 대진표(2017 팁스타운) level 2
+def solution(n,a,b):
+    answer = 1
+    while abs(a-b) != 1 or a // 2 == b // 2:
+        a = a // 2 + a % 2
+        b = b // 2 + b % 2
+        answer += 1
+    return answer
