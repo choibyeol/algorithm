@@ -80,14 +80,33 @@ def solution(name):
             
     return answer
 
-    # 큰 수 만들기 - level 2
-    def solution(number, k):
-        answer = []
-        for num in number:
-            while k != 0 and answer and answer[-1] < num:
-                k -= 1
-                answer.pop()
-            answer.append(num)
-        
-        answer = ''.join(answer[:len(number)-k])
-        return answer
+# 큰 수 만들기 - level 2
+def solution(number, k):
+    answer = []
+    for num in number:
+        while k != 0 and answer and answer[-1] < num:
+            k -= 1
+            answer.pop()
+        answer.append(num)
+    
+    answer = ''.join(answer[:len(number)-k])
+    return answer
+
+# 구명보트 - level 2
+from collections import deque
+
+def solution(people, limit):
+    answer = 0
+    people.sort()
+    deq = deque(people)
+    while deq:
+        if len(deq) == 1:
+            answer += 1
+            break
+        if deq[0] + deq[-1] <= limit:
+            deq.pop()
+            deq.popleft()
+        else:
+            deq.pop()
+        answer += 1
+    return answer
