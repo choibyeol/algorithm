@@ -570,3 +570,12 @@ def solution(n):
     for i in range(3, n+1):
         dp[i] = dp[i-1] + dp[i-2]
     return dp[n] % 1234567
+
+# 점프와 순간 이동 level 2
+def solution(n):
+    ans = 1
+    while n != 1:
+        if n % 2 != 0:
+            ans += 1
+        n = n // 2
+    return ans
