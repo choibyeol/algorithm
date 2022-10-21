@@ -36,6 +36,17 @@ def solution(priorities, location):
     answer = arr1.index(location) + 1
     return answer
 
+# 프린터 다른 풀이
+def solution(priorities, location):
+    answer = 0
+    while True:
+        for i, p in enumerate(priorities):
+            if p == max(priorities):
+                answer += 1
+                priorities[i] = 0
+                if i == location:
+                    return answer
+
 # 다리를 지나는 트럭 level 2
 def solution(bridge_length, weight, truck_weights):
     answer = 0
