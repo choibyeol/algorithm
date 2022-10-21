@@ -20,3 +20,17 @@ function solution(progresses, speeds) {
   answer.push(cnt);
   return answer;
 }
+
+// 올바른 괄호 level 2
+function solution(s) {
+  let stack = [];
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] == "(") stack.push(s[i]);
+    else {
+      if (stack.length == 0) return false;
+      else stack.pop();
+    }
+  }
+  if (stack.length != 0) return false;
+  return true;
+}
