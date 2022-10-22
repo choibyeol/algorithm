@@ -72,3 +72,26 @@ def solution(genres, plays):
                 break
     
     return answer
+
+# 베스트앨범 다른 풀이
+def solution(genres, plays):
+    answer = []
+    genre = {}
+    for i, g in enumerate(genres):
+        if g not in genre:
+            genre[g] = [plays[i], [i, plays[i]]]
+        else:
+            genre[g][0] += plays[i]
+            genre[g].append([i, plays[i]])
+    genre = dict(sorted(genre.items(), key = lambda x: (-x[1][0])))
+    value = list(genre.values())
+    for i in range(len(value)):
+        tmp = sorted(value[i][1:], key = lambda x: -x[1])
+        cnt = 0
+        while cnt != 2:
+            answer.append(tmp[cnt][0])
+            if len(tmp) == 1:
+                break
+            cnt += 1
+    
+    return answer
