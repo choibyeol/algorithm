@@ -595,3 +595,13 @@ def solution(topping):
         if len(dic) == len(set_dic):
             answer += 1
     return answer
+
+# 삼총사 level 1
+def solution(number):
+    answer = 0
+    for i in range(len(number) - 2):
+        for j in range(i+1, len(number)):
+            for k in range(j+1, len(number)):
+                if number[i] + number[j] + number[k] == 0:
+                    answer += 1
+    return answer
