@@ -605,3 +605,11 @@ def solution(number):
                 if number[i] + number[j] + number[k] == 0:
                     answer += 1
     return answer
+
+# 콜라 문제 level 1
+def solution(a, b, n):
+    answer = 0
+    while n >= a:
+        answer += (n // a) * b
+        n = n - (a * (n // a)) + (n // a) * b
+    return answer
