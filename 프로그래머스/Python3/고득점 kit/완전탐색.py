@@ -103,3 +103,15 @@ def solution(sizes):
             mins.append(w)
     answer = max(maxs) * max(mins)
     return answer
+
+# 모음사전 level 2
+from itertools import product
+
+def solution(word):
+    words = []
+    for i in range(1, 6):
+        for w in product(['A', 'E', 'I', 'O', 'U'], repeat=i):
+            words.append(''.join(list(w)))
+
+    words.sort()
+    return words.index(word) + 1
