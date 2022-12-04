@@ -613,3 +613,16 @@ def solution(a, b, n):
         answer += (n // a) * b
         n = n - (a * (n // a)) + (n // a) * b
     return answer
+
+# 행렬의 곱셈 level 2
+def solution(arr1, arr2):
+    rows = len(arr1)
+    cols = len(arr2[0])
+    answer = [[0 for j in range(cols)] for i in range(rows)]
+
+    for i in range(rows):
+        for j in range(cols):
+            for k in range(len(arr1[0])):
+                answer[i][j] += arr1[i][k] * arr2[k][j]
+        
+    return answer
