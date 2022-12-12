@@ -626,3 +626,15 @@ def solution(arr1, arr2):
                 answer[i][j] += arr1[i][k] * arr2[k][j]
         
     return answer
+
+# 푸드 파이트 대회 level 1
+def solution(food):
+    answer = ''
+    temp = []
+    for i in range(1, len(food)):
+        for j in range(food[i] // 2):
+            temp.append(str(i))
+    answer += "".join(temp) + "0"
+    temp.sort(reverse=True)
+    answer += "".join(temp)
+    return answer
